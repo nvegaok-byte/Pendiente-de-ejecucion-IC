@@ -277,21 +277,25 @@
       <span class="kpi__value" id="kpiTotal">0</span>
     </div>
     <div class="kpi">
-      <span class="kpi__label">CORRECTIVO</span>
-      <span class="kpi__value" id="kpiCorrectivo">0</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi__label">PREVENTIVO</span>
-      <span class="kpi__value" id="kpiPreventivo">0</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi__label">PREDICTIVO</span>
-      <span class="kpi__value" id="kpiPredictivo">0</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi__label">MODIFICACIÓN</span>
-      <span class="kpi__value" id="kpiModificacion">0</span>
-    </div>
+  <span class="kpi__label">CORRECTIVO</span>
+  <span class="kpi__value" id="kpiCorrectivo">0</span>
+</div>
+<div class="kpi">
+  <span class="kpi__label">PREVENTIVO</span>
+  <span class="kpi__value" id="kpiPreventivo">0</span>
+</div>
+<div class="kpi">
+  <span class="kpi__label">ELECTIVOS</span>
+  <span class="kpi__value" id="kpiElectivos">0</span>
+</div>
+<div class="kpi">
+  <span class="kpi__label">TAP</span>
+  <span class="kpi__value" id="kpiTap">0</span>
+</div>
+<div class="kpi">
+  <span class="kpi__label">OTROS</span>
+  <span class="kpi__value" id="kpiOtros">0</span>
+</div>
   </section>
 
   <section class="filters">
@@ -304,13 +308,14 @@
     </div>
     <div class="filters__group">
       <label>Tipo</label>
-      <select id="filterTipo">
-        <option value="">Todos</option>
-        <option value="Correctivo">Correctivo</option>
-        <option value="Preventivo">Preventivo</option>
-        <option value="Predictivo">Predictivo</option>
-        <option value="Modificación">Modificación</option>
-      </select>
+     <select id="filterTipo">
+  <option value="">Todos</option>
+  <option value="Correctivo">Correctivo</option>
+  <option value="Preventivo">Preventivo</option>
+  <option value="Electivos">Electivos</option>
+  <option value="TAP">TAP</option>
+  <option value="Otros">Otros</option>
+</select>
     </div>
     <div class="filters__group">
       <label>Responsable</label>
@@ -390,10 +395,11 @@
       lastUpdate: document.getElementById('lastUpdate'),
       statusDot: document.getElementById('statusDot'),
       kpiTotal: document.getElementById('kpiTotal'),
-      kpiCorrectivo: document.getElementById('kpiCorrectivo'),
-      kpiPreventivo: document.getElementById('kpiPreventivo'),
-      kpiPredictivo: document.getElementById('kpiPredictivo'),
-      kpiModificacion: document.getElementById('kpiModificacion'),
+     kpiCorrectivo: document.getElementById('kpiCorrectivo'),
+kpiPreventivo: document.getElementById('kpiPreventivo'),
+kpiElectivos: document.getElementById('kpiElectivos'),
+kpiTap: document.getElementById('kpiTap'),
+kpiOtros: document.getElementById('kpiOtros'),
       byResponsable: document.getElementById('byResponsable'),
       search: document.getElementById('searchInput'),
       filterTipo: document.getElementById('filterTipo'),
@@ -441,14 +447,15 @@
       });
     }
 
-    function renderKPIs() {
-      const countBy = (t) => state.data.filter(ot => ot.tipo === t).length;
-      els.kpiTotal.textContent = state.data.length;
-      els.kpiCorrectivo.textContent = countBy('Correctivo');
-      els.kpiPreventivo.textContent = countBy('Preventivo');
-      els.kpiPredictivo.textContent = countBy('Predictivo');
-      els.kpiModificacion.textContent = countBy('Modificación');
-    }
+   function renderKPIs() {
+  const countBy = (t) => state.data.filter(ot => ot.tipo === t).length;
+  els.kpiTotal.textContent = state.data.length;
+  els.kpiCorrectivo.textContent = countBy('Correctivo');
+  els.kpiPreventivo.textContent = countBy('Preventivo');
+  els.kpiElectivos.textContent = countBy('Electivos');
+  els.kpiTap.textContent = countBy('TAP');
+  els.kpiOtros.textContent = countBy('Otros');
+}
 
     function renderByResponsable() {
       const RESP = ['WOCAMPO', 'NVEGA', 'NELSERSER', 'LRIOS'];
