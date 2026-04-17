@@ -277,15 +277,15 @@
       <span class="kpi__value" id="kpiTotal">0</span>
     </div>
     <div class="kpi">
-  <span class="kpi__label">CORRECTIVO</span>
+  <span class="kpi__label">COR</span>
   <span class="kpi__value" id="kpiCorrectivo">0</span>
 </div>
 <div class="kpi">
-  <span class="kpi__label">PREVENTIVO</span>
+  <span class="kpi__label">PRE</span>
   <span class="kpi__value" id="kpiPreventivo">0</span>
 </div>
 <div class="kpi">
-  <span class="kpi__label">ELECTIVOS</span>
+  <span class="kpi__label">ELE</span>
   <span class="kpi__value" id="kpiElectivos">0</span>
 </div>
 <div class="kpi">
@@ -293,7 +293,7 @@
   <span class="kpi__value" id="kpiTap">0</span>
 </div>
 <div class="kpi">
-  <span class="kpi__label">OTROS</span>
+ <span class="kpi__label">OTR</span>
   <span class="kpi__value" id="kpiOtros">0</span>
 </div>
   </section>
@@ -308,13 +308,13 @@
     </div>
     <div class="filters__group">
       <label>Tipo</label>
-     <select id="filterTipo">
+    <select id="filterTipo">
   <option value="">Todos</option>
-  <option value="Correctivo">Correctivo</option>
-  <option value="Preventivo">Preventivo</option>
-  <option value="Electivos">Electivos</option>
+  <option value="COR">COR — Correctivo</option>
+  <option value="PRE">PRE — Preventivo</option>
+  <option value="ELE">ELE — Electivos</option>
   <option value="TAP">TAP</option>
-  <option value="Otros">Otros</option>
+  <option value="OTR">OTR — Otros</option>
 </select>
     </div>
     <div class="filters__group">
@@ -450,11 +450,11 @@ kpiOtros: document.getElementById('kpiOtros'),
    function renderKPIs() {
   const countBy = (t) => state.data.filter(ot => ot.tipo === t).length;
   els.kpiTotal.textContent = state.data.length;
-  els.kpiCorrectivo.textContent = countBy('Correctivo');
-  els.kpiPreventivo.textContent = countBy('Preventivo');
-  els.kpiElectivos.textContent = countBy('Electivos');
+  els.kpiCorrectivo.textContent = countBy('COR');
+  els.kpiPreventivo.textContent = countBy('PRE');
+  els.kpiElectivos.textContent = countBy('ELE');
   els.kpiTap.textContent = countBy('TAP');
-  els.kpiOtros.textContent = countBy('Otros');
+  els.kpiOtros.textContent = countBy('OTR');
 }
 
     function renderByResponsable() {
