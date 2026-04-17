@@ -319,14 +319,14 @@
     </div>
     <div class="filters__group">
       <label>Responsable</label>
-      <select id="filterResponsable">
-        <option value="">Todos</option>
-        <option value="WOCAMPO">WOCAMPO</option>
-        <option value="NVEGA">NVEGA</option>
-        <option value="NELSERSER">NELSERSER</option>
-        <option value="LRIOS">LRIOS</option>
-      </select>
-    </div>
+     <select id="filterResponsable">
+  <option value="">Todos</option>
+  <option value="WOCAMPO">WOCAMPO</option>
+  <option value="NVEGA">NVEGA</option>
+  <option value="NELSERSER">NELSERSER</option>
+  <option value="LRIOS">LRIOS</option>
+  <option value="VEGAN">VEGAN</option>
+</select>
     <button class="btn-clear" id="btnClear">Limpiar</button>
   </section>
 
@@ -458,7 +458,7 @@ kpiOtros: document.getElementById('kpiOtros'),
 }
 
     function renderByResponsable() {
-      const RESP = ['WOCAMPO', 'NVEGA', 'NELSERSER', 'LRIOS'];
+      const RESP = ['WOCAMPO', 'NVEGA', 'NELSERSER', 'LRIOS', 'VEGAN'];
       const counts = {}; RESP.forEach(r => counts[r] = 0);
       state.data.forEach(ot => { if (counts[ot.responsable] !== undefined) counts[ot.responsable]++; });
       els.byResponsable.innerHTML = RESP.map(r =>
